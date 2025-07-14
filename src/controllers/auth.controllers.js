@@ -18,7 +18,7 @@ const register = async (req, res) => {
       name,
       lasname,
       email,
-      password,
+      password: hashed,
     });
     await nuevoUsuario.save();
     res.status(201).json({ message: "Usuario registrado correctamente" });
@@ -26,7 +26,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
     const usuario = await User.findOne({ username });
