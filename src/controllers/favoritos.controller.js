@@ -1,4 +1,4 @@
-const Favorito = require("../models/favoritos.models");
+const Favorito = require('../models/favoritos.models')
 const { obtenerRecetaPorId } = require("../services/mealdb.service");
 
 export const agregarFavorito = async (req, res) => {

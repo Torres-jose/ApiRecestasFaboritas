@@ -12,7 +12,7 @@ app.use(morgan('dev'));         // Muestra logs de las peticiones en consola
 
 //Rutas base
 app.use('/api/auth', require('./routes/auth.routes'));
-
+app.use('/api/favoritos', require('./routes/favoritos.routes'))
 //Ruta de prueba para mantener despierto el servidor
 app.get('/ping', (req, res) => res.send('pong'));
 

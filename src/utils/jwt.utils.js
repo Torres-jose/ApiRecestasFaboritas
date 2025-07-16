@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { token } = require('morgan');
+
 
 const generateToken = (payload) =>{
     return jwt.sign(payload, process.env.KEY,{expiresIn:'7d'});

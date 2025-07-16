@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const {Shema, model} = mongoose;
+const {Schema, model} = mongoose;
 
 
 const FavoritoShema = new Shema({
@@ -16,10 +16,10 @@ const FavoritoShema = new Shema({
     categoira: String,
     area: String,
     instrucciones: String,
-    image: String
+    imagen: String
 
 },{
-    timesTamps: true
+    timestamps: true
 });
 
 FavoritoShema.index({userId: 1, idMeal: 1}, {unique: true});
