@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
-export const obtenerRecetaPorId = async (idMeal) => {
+const obtenerRecetaPorId = async (idMeal) => {
   try {
     const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`
@@ -12,3 +12,5 @@ export const obtenerRecetaPorId = async (idMeal) => {
     return null;
   }
 };
+
+module.exports={obtenerRecetaPorId}

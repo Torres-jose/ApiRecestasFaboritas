@@ -1,26 +1,28 @@
-import mongoose from "mongoose";
-const {Schema, model} = mongoose;
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
-
-const FavoritoShema = new Shema({
-    userId:{
-        type: Shema.Types.ObjectId,
-        ref: 'users',
-        required: true
-    },
-    idMeal:{
-        type: String,
-        required: true
-    },
-    nombre: String,
-    categoira: String,
-    area: String,
-    instrucciones: String,
-    imagen: String
-
-},{
-    timestamps: true
+const favoritoSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'users',
+    required: true
+  },
+  idMeal: {
+    type: String,
+    required: true
+  },
+  nombre: String, // strMeal
+  categoria: String, // strCategory
+  area: String, // strArea
+  instrucciones: String, // strInstructions
+  imagen: String, // strMealThumb
+  video: String, // strYoutube
+  ingredientes: [String],
+  medidas: [String]
+}, {
+  timestamps: true
 });
 
-FavoritoShema.index({userId: 1, idMeal: 1}, {unique: true});
-export default model('favoritos', FavoritoShema);
+favoritoSchema.index({ userId: 1, idMeal: 1 }, { unique: true });
+
+module.exports = mongoose.model("favoritos", favoritoSchema);

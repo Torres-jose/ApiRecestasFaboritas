@@ -8,8 +8,8 @@ const {
 const FavoritoRouter = express.Router();
 
 FavoritoRouter.use(verifyToken);
-FavoritoRouter.post("/", agregarFavorito);
-FavoritoRouter.get("/", listarFavorito);
+FavoritoRouter.post("/api", agregarFavorito);
+FavoritoRouter.get("/api", listarFavorito);
 FavoritoRouter.delete("/:idMeal", eliminarFavorito);
 
 module.exports = FavoritoRouter;
