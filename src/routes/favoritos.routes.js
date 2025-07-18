@@ -1,5 +1,5 @@
 const express = require("express");
-const { verifyToken } = require("../utils/jwt.utils");
+const verificarToken = require("../middlewares/verifyToken.middlewares")
 const {
   agregarFavorito,
   listarFavorito,
@@ -7,9 +7,9 @@ const {
 } = require("../controllers/favoritos.controller");
 const FavoritoRouter = express.Router();
 
-FavoritoRouter.use(verifyToken);
-FavoritoRouter.post("/", agregarFavorito);
+FavoritoRouter.use(verificarToken);
 FavoritoRouter.get("/", listarFavorito);
+FavoritoRouter.post("/", agregarFavorito);
 FavoritoRouter.delete("/:idMeal", eliminarFavorito);
 
 module.exports = FavoritoRouter;

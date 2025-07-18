@@ -54,14 +54,20 @@ const agregarFavorito = async (req, res) => {
 // Listar favoritos
 const listarFavorito = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user.userId; // según cómo lo guardaste al crear el token
     const favoritos = await Favorito.find({ userId });
-    res.json(favoritos);
+
+    if (!favoritos || favoritos.length === 0) {
+      return res.status(200).json({ message: "No tienes recetas en favoritos." });
+    }
+
+    res.status(200).json(favoritos);
   } catch (error) {
     console.error("Error al listar favoritos:", error);
     res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
 
 // Eliminar favorito
 const eliminarFavorito = async (req, res) => {

@@ -50,10 +50,12 @@ const login = async (req, res) => {
         id: usuario._id,
         username: usuario.username,
         name: usuario.name,
-        emeal: usuario.email,
+        email: usuario.email,
       },
     });
   } catch (error) {
+    // Asegúrate de tener un console.log
+    console.error("Error en login:", error);
     res.status(500).json({ message: "Error del servidor", error });
   }
 };
